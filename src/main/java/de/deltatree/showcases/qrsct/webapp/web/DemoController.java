@@ -1,6 +1,7 @@
 package de.deltatree.showcases.qrsct.webapp.web;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.common.io.ByteStreams;
+import com.google.common.io.Resources;
 import com.neovisionaries.i18n.CurrencyCode;
 
 import de.deltatree.showcases.qrsct.webapp.service.QRCodeService;
@@ -46,20 +49,28 @@ public class DemoController {
 			@RequestParam(value = "height", required = false, defaultValue = "222") String height,
 			HttpServletResponse response) throws IOException {
 
-		QRSCT qrsct = new QRSCT()
-				.serviceTag(QRSCTServiceTagEnum.valueOf(serviceTag))
-				.version(QRSCTVersionEnum.valueOf(version))
-				.characterSet(QRSCTCharacterSetEnum.valueOf(characterSet))
-				.bic(bic)
-				.name(name)
-				.iban(iban)
-				.amount(CurrencyCode.valueOf(amountCurrencyCode),
-						Double.valueOf(amount))
-				.purpose(QRSCTPurposeEnum.valueOf(purpose))
-				.reference(reference).hint(hint);
+		try {
+			QRSCT qrsct = new QRSCT()
+					.serviceTag(QRSCTServiceTagEnum.valueOf(serviceTag))
+					.version(QRSCTVersionEnum.valueOf(version))
+					.characterSet(QRSCTCharacterSetEnum.valueOf(characterSet))
+					.bic(bic)
+					.name(name)
+					.iban(iban)
+					.amount(CurrencyCode.valueOf(amountCurrencyCode),
+							Double.valueOf(amount))
+					.purpose(QRSCTPurposeEnum.valueOf(purpose))
+					.reference(reference).hint(hint);
+			this.qrsctService.stream(response, qrsct, Integer.valueOf(width)
+					.intValue(), Integer.valueOf(height).intValue());
+		} catch (Exception e) {
+			response.setContentType("image/png"); //$NON-NLS-1$
+			InputStream openStream = Resources.getResource("forbidden.png")
+					.openStream();
+			ByteStreams.copy(openStream, response.getOutputStream());
+			openStream.close();
+		}
 
-		this.qrsctService.stream(response, qrsct, Integer.valueOf(width)
-				.intValue(), Integer.valueOf(height).intValue());
 	}
 
 	@RequestMapping("/checkQRCode")
