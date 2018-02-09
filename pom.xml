@@ -13,7 +13,7 @@
 	<name>QRSCT showcase</name>
 	<description>Showcase for: https://github.com/deltatree/qrsct</description>
 	<version>1.0.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<properties>
 		<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
@@ -83,10 +83,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-        				<layout>WAR</layout>
-      				</configuration>
-				<mainClass>de.deltatree.showcases.qrsct.webapp.DemoApplication</mainClass>
 			</plugin>
 		</plugins>
 	</build>
