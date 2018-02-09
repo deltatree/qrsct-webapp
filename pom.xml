@@ -86,6 +86,7 @@
 				<configuration>
         				<layout>WAR</layout>
       				</configuration>
+				<mainClass>de.deltatree.showcases.qrsct.webapp.DemoApplication</mainClass>
 			</plugin>
 		</plugins>
 	</build>
