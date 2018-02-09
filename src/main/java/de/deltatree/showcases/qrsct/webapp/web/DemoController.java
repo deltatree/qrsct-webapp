@@ -6,7 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,23 +50,16 @@ public class DemoController {
 			HttpServletResponse response) throws IOException {
 
 		try {
-			QRSCT qrsct = new QRSCT()
-					.serviceTag(QRSCTServiceTagEnum.valueOf(serviceTag))
+			QRSCT qrsct = new QRSCT().serviceTag(QRSCTServiceTagEnum.valueOf(serviceTag))
 					.version(QRSCTVersionEnum.valueOf(version))
-					.characterSet(QRSCTCharacterSetEnum.valueOf(characterSet))
-					.bic(bic)
-					.name(name)
-					.iban(iban)
-					.amount(CurrencyCode.valueOf(amountCurrencyCode),
-							Double.valueOf(amount))
-					.purpose(QRSCTPurposeEnum.valueOf(purpose))
-					.reference(reference).hint(hint);
-			this.qrsctService.stream(response, qrsct, Integer.valueOf(width)
-					.intValue(), Integer.valueOf(height).intValue());
+					.characterSet(QRSCTCharacterSetEnum.valueOf(characterSet)).bic(bic).name(name).iban(iban)
+					.amount(CurrencyCode.valueOf(amountCurrencyCode), Double.valueOf(amount))
+					.purpose(QRSCTPurposeEnum.valueOf(purpose)).reference(reference).hint(hint);
+			this.qrsctService.stream(response, qrsct, Integer.valueOf(width).intValue(),
+					Integer.valueOf(height).intValue());
 		} catch (Exception e) {
 			response.setContentType("image/png"); //$NON-NLS-1$
-			InputStream openStream = Resources.getResource("forbidden.png")
-					.openStream();
+			InputStream openStream = Resources.getResource("forbidden.png").openStream();
 			ByteStreams.copy(openStream, response.getOutputStream());
 			openStream.close();
 		}
@@ -92,22 +85,16 @@ public class DemoController {
 			HttpServletResponse response) throws IOException {
 
 		try {
-			QRSCT qrsct = new QRSCT()
-					.serviceTag(QRSCTServiceTagEnum.valueOf(serviceTag))
+			QRSCT qrsct = new QRSCT().serviceTag(QRSCTServiceTagEnum.valueOf(serviceTag))
 					.version(QRSCTVersionEnum.valueOf(version))
-					.characterSet(QRSCTCharacterSetEnum.valueOf(characterSet))
-					.bic(bic)
-					.name(name)
-					.iban(iban)
-					.amount(CurrencyCode.valueOf(amountCurrencyCode),
-							Double.valueOf(amount))
-					.purpose(QRSCTPurposeEnum.valueOf(purpose))
-					.reference(reference).hint(hint);
+					.characterSet(QRSCTCharacterSetEnum.valueOf(characterSet)).bic(bic).name(name).iban(iban)
+					.amount(CurrencyCode.valueOf(amountCurrencyCode), Double.valueOf(amount))
+					.purpose(QRSCTPurposeEnum.valueOf(purpose)).reference(reference).hint(hint);
 			qrsct.toString();
 			Integer.valueOf(width);
 			Integer.valueOf(height);
 		} catch (Exception e) {
-			return "<font color=\"red\">ERROR: " + StringEscapeUtils.escapeHtml(e.getMessage()) + "</font>"; //$NON-NLS-1$ //$NON-NLS-2$
+			return "<font color=\"red\">ERROR: " + StringEscapeUtils.escapeHtml4(e.getMessage()) + "</font>"; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		return OK;
