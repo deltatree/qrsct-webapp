@@ -2,13 +2,13 @@ package de.deltatree.showcases.qrsct.webapp.web;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,8 +26,6 @@ import de.deltatree.tools.qrsct.QRSCTVersionEnum;
 
 @Controller
 public class DemoController {
-
-	public static final String OK = "<font color=\"green\">OK :-)</font>"; //$NON-NLS-1$
 
 	@Autowired
 	private QRCodeService qrsctService;
@@ -97,11 +95,12 @@ public class DemoController {
 			return "<font color=\"red\">ERROR: " + StringEscapeUtils.escapeHtml4(e.getMessage()) + "</font>"; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		return OK;
+		return "<font color=\"green\">OK</font>";
 	}
 
 	@RequestMapping({ "/", "/index.html" })
-	public String welcome(Map<String, Object> model) {
-		return "example"; //$NON-NLS-1$
+	public String welcome(Model model) {
+		model.addAttribute("name", "tests");
+		return "index"; //$NON-NLS-1$
 	}
 }
