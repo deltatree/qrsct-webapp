@@ -22,6 +22,9 @@ iframe {
 				$('#textContent').html(responseText);
 			});
 		});
+
+		$('#amountCurrencyCode').val('EUR');
+		$('#purpose').val('OTHR');
 	});
 
 	function changeImage() {
@@ -78,8 +81,7 @@ iframe {
 								<td><select name="serviceTag" size="1"
 									style="width: 288px;"><option
 											th:each="serviceTag : ${T(de.deltatree.tools.qrsct.QRSCTServiceTagEnum).values()}"
-											th:value="${serviceTag}"
-											th:text="${serviceTag.getServiceTagId}"></option></select></td>
+											th:value="${serviceTag}" th:text="${serviceTag}"></option></select></td>
 							</tr>
 							<tr>
 								<td>version
@@ -87,8 +89,7 @@ iframe {
 								<td>:</td>
 								<td><select name="version" size="1" style="width: 288px;"><option
 											th:each="version : ${T(de.deltatree.tools.qrsct.QRSCTVersionEnum).values()}"
-											th:value="${version}" th:text="${version.getVersionId}"></option></select>
-								</td>
+											th:value="${version}" th:text="${version}"></option></select></td>
 							</tr>
 							<tr>
 								<td>characterSet
@@ -97,15 +98,13 @@ iframe {
 								<td><select name="characterSet" size="1"
 									style="width: 288px;"><option
 											th:each="characterSet : ${T(de.deltatree.tools.qrsct.QRSCTCharacterSetEnum).values()}"
-											th:value="${characterSet}"
-											th:text="${characterSet.getCharacterSetId}"></option></select></td>
+											th:value="${characterSet}" th:text="${characterSet}"></option></select></td>
 							</tr>
 							<tr>
 								<td>bic
 								<td>
 								<td>:</td>
-								<td><input type="text" name="bic"
-									value="<%=StringEscapeUtils.escapeHtml4(QRSCTDefaultValues.BIC)%>"
+								<td><input type="text" name="bic" value="BHBLDEHHXXX"
 									style="width: 288px;" /></td>
 							</tr>
 							<tr>
@@ -113,53 +112,48 @@ iframe {
 								<td>
 								<td>:</td>
 								<td><input type="text" name="name"
-									value="<%=StringEscapeUtils.escapeHtml4(QRSCTDefaultValues.NAME)%>"
-									style="width: 288px;" /></td>
+									value="Franz Mustermaennchen" style="width: 288px;" /></td>
 							</tr>
 							<tr>
 								<td>iban
 								<td>
 								<td>:</td>
 								<td><input type="text" name="iban"
-									value="<%=StringEscapeUtils.escapeHtml4(QRSCTDefaultValues.IBAN)%>"
+									value="DE71110220330123456789123456789876"
 									style="width: 288px;" /></td>
 							</tr>
 							<tr>
 								<td>amount
 								<td>
 								<td>:</td>
-								<td><select name="amountCurrencyCode" size="1"
-									style="width: 288px;"><option
-											th:each="amountCurrencyCode : ${T(de.deltatree.tools.qrsct.QRSCTCharacterSetEnum).values()}"
+								<td><select name="amountCurrencyCode"
+									id="amountCurrencyCode" size="1" style="width: 288px;"><option
+											th:each="amountCurrencyCode : ${T(com.neovisionaries.i18n.CurrencyCode).values()}"
 											th:value="${amountCurrencyCode}"
-											th:text="${amountCurrencyCode.getCurrency.currencyCode}"></option></select></td>
-											
-											
-								<td><select name="amountCurrencyCode" size="1"><%=SelectBoxHelper.renderOptions(CurrencyCode.class,QRSCTDefaultValues.AMOUNT_CURRENCY_CODE)%>
-								</select><input type="text" name="amount" style="width: 111px;"
-									value="<%=StringEscapeUtils.escapeHtml4(QRSCTDefaultValues.AMOUNT)%>" /></td>
+											th:text="${amountCurrencyCode}"></option></select> <input type="text"
+									name="amount" style="width: 111px;" value="999999999.11" /></td>
 							</tr>
 							<tr>
 								<td>purpose
 								<td>
 								<td>:</td>
-								<td><select name="purpose" size="1" style="width: 288px;"><%=SelectBoxHelper.renderOptions(QRSCTPurposeEnum.class,QRSCTDefaultValues.PURPOSE)%>
-								</select></td>
+								<td><select name="purpose" id="purpose" size="1"
+									style="width: 288px;"><option
+											th:each="purpose : ${T(de.deltatree.tools.qrsct.QRSCTPurposeEnum).values()}"
+											th:value="${purpose}" th:text="${purpose}"></option></select></td>
 							</tr>
 							<tr>
 								<td>reference
 								<td>
 								<td>:</td>
 								<td><input type="text" name="reference"
-									value="<%=StringEscapeUtils.escapeHtml4(QRSCTDefaultValues.REFERENCE)%>"
-									style="width: 288px;" /></td>
+									value="egon 123 test : dankeschoen" style="width: 288px;" /></td>
 							</tr>
 							<tr>
 								<td>hint
 								<td>
 								<td>:</td>
-								<td><input type="text" name="hint"
-									value="<%=StringEscapeUtils.escapeHtml4(QRSCTDefaultValues.HINT)%>"
+								<td><input type="text" name="hint" value="kein Hinweis"
 									style="width: 288px;" /></td>
 							</tr>
 							<tr>
