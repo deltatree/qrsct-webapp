@@ -7,6 +7,10 @@ buildscript {
     }
 }
 
+plugins {
+	id "com.github.pivotalservices.cf-app" version "2.1.0"
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -35,4 +39,17 @@ dependencies {
 
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+cfConfig {
+	ccHost = "api.eu-gb.bluemix.net"
+	ccUser = System.getenv("CF_USER")
+	ccPassword = System.getenv("CF_PASS")
+	org = System.getenv("CF_ORG")
+	space = System.getenv("CF_SPACE")
+
+	name = "qrsct-webapp"
+	host = "qrsct-webapp"
+	filePath = "./build/libs/qrsct-webapp-0.1.0.jar"
+	instances = 1
 }
