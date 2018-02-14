@@ -6,4 +6,4 @@ Showcase for: https://github.com/deltatree/qrsct
 demo-link
 =====
 
-http://qrsct.deltatree.de/dtapp/qrsct/
+https://qrsct-webapp.eu-gb.mybluemix.net
