@@ -3,7 +3,7 @@ qrsct-webapp [![Build Status](https://travis-ci.org/deltatree/qrsct-webapp.svg?b
 
 Showcase for: https://github.com/deltatree/qrsct
 
-demo-link
+Demo-link
 =====
 
 https://qrsct-webapp.eu-gb.mybluemix.net
