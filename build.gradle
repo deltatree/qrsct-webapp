@@ -22,6 +22,9 @@ jar {
 
 repositories {
     mavenCentral()
+    maven {
+         url  "https://dl.bintray.com/deltatree/maven/"
+    }
 }
 
 sourceCompatibility = 1.8
