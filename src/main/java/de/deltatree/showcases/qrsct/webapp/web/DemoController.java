@@ -41,7 +41,7 @@ public class DemoController {
 			@RequestParam(value = "amountCurrencyCode", required = false, defaultValue = QRSCTDefaultValues.AMOUNT_CURRENCY_CODE) String amountCurrencyCode,
 			@RequestParam(value = "amount", required = false, defaultValue = QRSCTDefaultValues.AMOUNT) String amount,
 			@RequestParam(value = "purpose", required = false, defaultValue = QRSCTDefaultValues.PURPOSE) String purpose,
-			@RequestParam(value = "reference", required = false, defaultValue = QRSCTDefaultValues.REFERENCE) String reference,
+			@RequestParam(value = "text", required = false, defaultValue = QRSCTDefaultValues.TEXT) String text,
 			@RequestParam(value = "hint", required = false, defaultValue = QRSCTDefaultValues.HINT) String hint,
 			@RequestParam(value = "width", required = false, defaultValue = "222") String width,
 			@RequestParam(value = "height", required = false, defaultValue = "222") String height,
@@ -52,7 +52,7 @@ public class DemoController {
 					.version(QRSCTVersionEnum.valueOf(version))
 					.characterSet(QRSCTCharacterSetEnum.valueOf(characterSet)).bic(bic).name(name).iban(iban)
 					.amount(CurrencyCode.valueOf(amountCurrencyCode), Double.valueOf(amount))
-					.purpose(QRSCTPurposeEnum.valueOf(purpose)).reference(reference).hint(hint);
+					.purpose(QRSCTPurposeEnum.valueOf(purpose)).text(text).hint(hint);
 			this.qrsctService.stream(response, qrsct, Integer.valueOf(width).intValue(),
 					Integer.valueOf(height).intValue());
 		} catch (Exception e) {
@@ -76,7 +76,7 @@ public class DemoController {
 			@RequestParam(value = "amountCurrencyCode", required = false, defaultValue = QRSCTDefaultValues.AMOUNT_CURRENCY_CODE) String amountCurrencyCode,
 			@RequestParam(value = "amount", required = false, defaultValue = QRSCTDefaultValues.AMOUNT) String amount,
 			@RequestParam(value = "purpose", required = false, defaultValue = QRSCTDefaultValues.PURPOSE) String purpose,
-			@RequestParam(value = "reference", required = false, defaultValue = QRSCTDefaultValues.REFERENCE) String reference,
+			@RequestParam(value = "text", required = false, defaultValue = QRSCTDefaultValues.TEXT) String reference,
 			@RequestParam(value = "hint", required = false, defaultValue = QRSCTDefaultValues.HINT) String hint,
 			@RequestParam(value = "width", required = false, defaultValue = "222") String width,
 			@RequestParam(value = "height", required = false, defaultValue = "222") String height,
