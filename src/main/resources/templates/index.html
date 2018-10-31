@@ -50,8 +50,8 @@ iframe {
 				+ "&amount=" + encodeURIComponent(document.qrForm.amount.value)
 				+ "&purpose="
 				+ encodeURIComponent(document.qrForm.purpose.value)
-				+ "&reference="
-				+ encodeURIComponent(document.qrForm.reference.value)
+				+ "&text="
+				+ encodeURIComponent(document.qrForm.text.value)
 				+ "&hint=" + encodeURIComponent(document.qrForm.hint.value)
 				+ "&width=" + encodeURIComponent(document.qrForm.width.value)
 				+ "&height=" + encodeURIComponent(document.qrForm.height.value);
@@ -143,10 +143,10 @@ iframe {
 											th:value="${purpose}" th:text="${purpose}"></option></select></td>
 							</tr>
 							<tr>
-								<td>reference
+								<td>text
 								<td>
 								<td>:</td>
-								<td><input type="text" name="reference"
+								<td><input type="text" name="text"
 									value="egon 123 test : dankeschoen" style="width: 288px;" /></td>
 							</tr>
 							<tr>
