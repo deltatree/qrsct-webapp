@@ -16,20 +16,23 @@ iframe {
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		$('#amountCurrencyCode').val('EUR');
+		$('#purpose').val('OTHR');
 		$('#submit').click(function(event) {
 			var username = $('#user').val();
 			$.get("checkQRCode?" + createGet(), function(responseText) {
 				$('#textContent').html(responseText);
 			});
 		});
-
-		$('#amountCurrencyCode').val('EUR');
-		$('#purpose').val('OTHR');
+		changeImage();
 	});
 
 	function changeImage() {
+		parameters = createGet();
 		image = document.getElementById('qrCode');
-		image.src = "renderQRCode?" + createGet();
+		image.src = "renderQRCode?" + parameters;
+		link = document.getElementById('QRCodeLink');
+		link.href = "renderQRCode?" + parameters;
 	}
 
 	function createGet() {
@@ -183,6 +186,10 @@ iframe {
 					</div>
 
 					<hr /> <img src="renderQRCode" id="qrCode">
+
+					<hr />
+
+					<a href="#" id="QRCodeLink">Direktlink</a>
 
 				</td>
 			</tr>
