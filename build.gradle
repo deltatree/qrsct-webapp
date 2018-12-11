@@ -15,6 +15,13 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
 jar {
     baseName = 'qrsct-webapp'
     version =  '0.1.0'
@@ -42,6 +49,8 @@ dependencies {
 
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
 cfConfig {
