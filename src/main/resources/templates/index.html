@@ -6,10 +6,10 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 <link rel="stylesheet"
-	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
-	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(
@@ -126,6 +126,20 @@
 							<h1>Advanced</h1>
 							<table>
 								<tr>
+									<td>width
+									<td>
+									<td>:</td>
+									<td colspan="2"><input type="text" name="width"
+										value="222" style="width: 333px;" /></td>
+								</tr>
+								<tr>
+									<td>height
+									<td>
+									<td>:</td>
+									<td colspan="2"><input type="text" name="height"
+										value="222" style="width: 333px;" /></td>
+								</tr>
+								<tr>
 									<td>purpose
 									<td>
 									<td>:</td>
@@ -167,20 +181,6 @@
 										style="width: 333px;"><option
 												th:each="characterSet : ${T(de.deltatree.tools.qrsct.QRSCTCharacterSetEnum).values()}"
 												th:value="${characterSet}" th:text="${characterSet}"></option></select></td>
-								</tr>
-								<tr>
-									<td>width
-									<td>
-									<td>:</td>
-									<td colspan="2"><input type="text" name="width"
-										value="222" style="width: 333px;" /></td>
-								</tr>
-								<tr>
-									<td>height
-									<td>
-									<td>:</td>
-									<td colspan="2"><input type="text" name="height"
-										value="222" style="width: 333px;" /></td>
 								</tr>
 							</table>
 						</div>
