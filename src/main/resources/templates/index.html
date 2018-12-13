@@ -4,7 +4,7 @@
 <title>Showcase for: https://github.com/deltatree/qrsct</title>
 <meta name="author" content="Alexander Widak" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -66,148 +66,114 @@
 
 </head>
 <body>
-	<div align="center">
-		<table style="width: 333px;">
-			<tr>
-				<td align="center" valign="middle">
-
-					<h1>
-						Showcase for:<br> <a
-							href="https://github.com/deltatree/qrsct">https://github.com/deltatree/qrsct</a>
-					</h1>
-
-					<hr />
-
-					<form action="#" name="qrForm">
-						<table>
-							<tr>
-								<td>name
-								<td>
-								<td>:</td>
-								<td colspan="2"><input type="text" name="name"
-									value="DeltaTree Alexander Widak" style="width: 333px;" /></td>
-							</tr>
-							<tr>
-								<td>iban
-								<td>
-								<td>:</td>
-								<td colspan="2"><input type="text" name="iban"
-									value="DE21663916000034000832" style="width: 333px;" /></td>
-							</tr>
-							<tr>
-								<td>bic
-								<td>
-								<td>:</td>
-								<td colspan="2"><input type="text" name="bic"
-									value="GENODE61ORH" style="width: 333px;" /></td>
-							</tr>
-							<tr>
-								<td>amount
-								<td>
-								<td>:</td>
-								<td><input type="text" name="amount" value="1.11"
-									style="width: 333px;" /></td>
-								<td><select name="amountCurrencyCode"
-									id="amountCurrencyCode" size="1"><option
-											th:each="amountCurrencyCode : ${T(com.neovisionaries.i18n.CurrencyCode).values()}"
-											th:value="${amountCurrencyCode}"
-											th:text="${amountCurrencyCode}"></option></select></td>
-							</tr>
-							<tr>
-								<td>text
-								<td>
-								<td>:</td>
-								<td colspan="2"><input type="text" name="text"
-									value="Vielen Dank fuer diese coole App" style="width: 333px;" /></td>
-							</tr>
-						</table>
-						<div data-role="collapsible">
-							<h1>Advanced</h1>
-							<table>
-								<tr>
-									<td>width
-									<td>
-									<td>:</td>
-									<td colspan="2"><input type="range" name="width"
-										id="slider-width" value="222" min="50" max="1000" step="20"
-										data-highlight="true" />
-								</tr>
-								<tr>
-									<td>height
-									<td>
-									<td>:</td>
-									<td colspan="2"><input type="range" name="height"
-										value="222" min="50" max="1000" step="20"
-										data-highlight="true" /></td>
-								</tr>
-								<tr>
-									<td>purpose
-									<td>
-									<td>:</td>
-									<td colspan="2"><select name="purpose" id="purpose"
-										size="1" style="width: 333px;"><option
-												th:each="purpose : ${T(de.deltatree.tools.qrsct.QRSCTPurposeEnum).values()}"
-												th:value="${purpose}" th:text="${purpose}"></option></select></td>
-								</tr>
-								<tr>
-									<td>hint
-									<td>
-									<td>:</td>
-									<td colspan="2"><input type="text" name="hint"
-										value="kein Hinweis" style="width: 333px;" /></td>
-								</tr>
-								<tr>
-									<td>serviceTag
-									<td>
-									<td>:</td>
-									<td colspan="2"><select name="serviceTag" size="1"
-										style="width: 333px;"><option
-												th:each="serviceTag : ${T(de.deltatree.tools.qrsct.QRSCTServiceTagEnum).values()}"
-												th:value="${serviceTag}" th:text="${serviceTag}"></option></select></td>
-								</tr>
-								<tr>
-									<td>version
-									<td>
-									<td>:</td>
-									<td colspan="2"><select name="version" size="1"
-										style="width: 333px;"><option
-												th:each="version : ${T(de.deltatree.tools.qrsct.QRSCTVersionEnum).values()}"
-												th:value="${version}" th:text="${version}"></option></select></td>
-								</tr>
-								<tr>
-									<td>characterSet
-									<td>
-									<td>:</td>
-									<td colspan="2"><select name="characterSet" size="1"
-										style="width: 333px;"><option
-												th:each="characterSet : ${T(de.deltatree.tools.qrsct.QRSCTCharacterSetEnum).values()}"
-												th:value="${characterSet}" th:text="${characterSet}"></option></select></td>
-								</tr>
-							</table>
-						</div>
-						<table width="100%">
-							<tr>
-								<td width="50%"><input type="button" name="reset"
-									value="reset" onclick="window.location.reload()"></td>
-								<td width="50%"><input type="button" name="ok" value="ok"
-									onclick="changeImage()" id="submit" /></td>
-							</tr>
-						</table>
-					</form>
-
-					<hr />
-
+	<div data-role="page">
+		<div data-role="header">
+			<h1>
+				Showcase for <a href="https://github.com/deltatree/qrsct">https://github.com/deltatree/qrsct</a>
+			</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form action="#" name="qrForm">
+				<div class="ui-field-contain">
+					<label for="name">Name</label> <input type="text" name="name"
+						id="name" value="DeltaTree Alexander Widak" />
+				</div>
+				<div class="ui-field-contain">
+					<label for="iban">IBAN</label> <input type="text" name="iban"
+						id="iban" value="DE21663916000034000832" />
+				</div>
+				<div class="ui-field-contain">
+					<label for="bic">BIC</label> <input type="text" name="bic" id="bic"
+						value="GENODE61ORH" />
+				</div>
+				<div class="ui-field-contain">
+					<label for="amount">Betrag</label> <input type="text" name="amount"
+						id="amount" value="1.11" /> <select name="amountCurrencyCode"
+						id="amountCurrencyCode" size="1"><option
+							th:each="amountCurrencyCode : ${T(com.neovisionaries.i18n.CurrencyCode).values()}"
+							th:value="${amountCurrencyCode}" th:text="${amountCurrencyCode}"></option></select>
+				</div>
+				<div class="ui-field-contain">
+					<label for="text">Verwendungszweck</label> <input type="text"
+						name="text" id="text" value="Vielen Dank fuer diese coole App" />
+				</div>
+				<div data-role="collapsible">
+					<h1>Advanced</h1>
+					<div class="ui-field-contain">
+						<label for="width">Breite</label> <input type="range" name="width"
+							id="slider-width" value="222" min="50" max="1000" step="20"
+							data-highlight="true" />
+					</div>
+					<div class="ui-field-contain">
+						<label for="height">H&ouml;he</label> <input type="range"
+							name="height" id="height" value="222" min="50" max="1000"
+							step="20" data-highlight="true" />
+					</div>
+					<div class="ui-field-contain">
+						<label for="purpose">Verwendungscode</label> <select
+							name="purpose" id="purpose"><option
+								th:each="purpose : ${T(de.deltatree.tools.qrsct.QRSCTPurposeEnum).values()}"
+								th:value="${purpose}" th:text="${purpose}"></option></select>
+					</div>
+					<div class="ui-field-contain">
+						<label for="hint">Hinweis</label> <input type="text" name="hint"
+							value="kein Hinweis" />
+					</div>
+					<div class="ui-field-contain">
+						<label for="serviceTag">ServiceTag</label> <select
+							name="serviceTag" id="serviceTag"><option
+								th:each="serviceTag : ${T(de.deltatree.tools.qrsct.QRSCTServiceTagEnum).values()}"
+								th:value="${serviceTag}" th:text="${serviceTag}"></option></select>
+					</div>
+					<div class="ui-field-contain">
+						<label for="version">Version</label> <select name="version"
+							id="version"><option
+								th:each="version : ${T(de.deltatree.tools.qrsct.QRSCTVersionEnum).values()}"
+								th:value="${version}" th:text="${version}"></option></select>
+					</div>
+					<div class="ui-field-contain">
+						<label for="characterSet">CharacterSet</label> <select
+							name="characterSet" id="characterSet"><option
+								th:each="characterSet : ${T(de.deltatree.tools.qrsct.QRSCTCharacterSetEnum).values()}"
+								th:value="${characterSet}" th:text="${characterSet}"></option></select>
+					</div>
+				</div>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<input type="button" name="reset" value="reset"
+							onclick="window.location.reload()">
+					</div>
+					<div class="ui-block-b">
+						<input type="button" name="ok" value="ok" onclick="changeImage()"
+							id="submit" />
+					</div>
+				</div>
+			</form>
+			<div class="ui-grid-b">
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-b" align="center">
 					<div id="textContent">
 						<font color="green">OK</font>
 					</div>
-
-					<hr /> <img src="renderQRCode" id="qrCode">
-
-					<hr /> <a href="#" id="QRCodeLink">Direktlink</a>
-
-				</td>
-			</tr>
-		</table>
+				</div>
+				<div class="ui-block-c">&nbsp;</div>
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-b" align="center">
+					<img src="renderQRCode" id="qrCode">
+				</div>
+				<div class="ui-block-c">&nbsp;</div>
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-b" align="center">
+					<a href="#" id="QRCodeLink">Direktlink</a>
+				</div>
+				<div class="ui-block-c">&nbsp;</div>
+			</div>
+		</div>
+		<div data-role="footer">
+			<h1>
+				Presented by <a href="https://www.deltatree.de" target="_blank">DeltaTree</a>
+			</h1>
+		</div>
 	</div>
 </body>
 </html>
