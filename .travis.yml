@@ -1,4 +1,4 @@
 language: java
 jdk:
-  - oraclejdk11
+  - oraclejdk10
 script: gradle clean build cf-push
