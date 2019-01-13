@@ -3,17 +3,19 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.10.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.2.RELEASE")
     }
 }
 
 plugins {
-	id "com.github.pivotalservices.cf-app" version "2.1.0"
+	id "com.github.pivotalservices.cf-app" version "2.2.0"
+	id "io.spring.dependency-management" version "1.0.6.RELEASE"
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: "io.spring.dependency-management"
 
 configurations {
 	developmentOnly
@@ -43,8 +45,8 @@ dependencies {
     compile("net.glxn.qrgen:javase:2.0")
     compile("de.deltatree.tools:qrsct:1.1.5")
     compile("com.google.code.gson:gson")
-    compile("com.google.guava:guava:24.0-jre")
-    compile("org.apache.commons:commons-text:1.2")
+    compile("com.google.guava:guava:27.0.1-jre")
+    compile("org.apache.commons:commons-text:1.6")
 	compile 'net.sourceforge.nekohtml:nekohtml:1.9.22'
 
     testCompile("junit:junit")
