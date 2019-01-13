@@ -26,7 +26,6 @@ configurations {
 
 jar {
     baseName = 'qrsct-webapp'
-    version =  '0.1.0'
 }
 
 repositories {
@@ -64,6 +63,6 @@ cfConfig {
 
 	name = "qrsct-webapp"
 	host = "qrsct-webapp"
-	filePath = "./build/libs/qrsct-webapp-0.1.0.jar"
+	filePath = "./build/libs/qrsct-webapp.jar"
 	instances = 1
 }
