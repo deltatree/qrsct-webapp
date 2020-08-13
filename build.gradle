@@ -63,6 +63,9 @@ cfConfig {
 
 	name = "qrsct-webapp"
 	host = "qrsct-webapp"
+	memory: 256M
 	filePath = "./build/libs/qrsct-webapp.jar"
 	instances = 1
+	env:
+          JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {memory_sizes: {native: 256m}}]'
 }
