@@ -67,5 +67,5 @@ cfConfig {
 	filePath = "./build/libs/qrsct-webapp.jar"
 	instances = 1
 	buildpack = "https://github.com/cloudfoundry/java-buildpack.git"
-    environment = ["JAVA_OPTS": "-XX:MaxMetaspaceSize=80780K -Xss160k -Xmx200M -XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M' -JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {stack_threads: 10, memory_sizes: {stack: 512k}}]"]
+    environment = ["JAVA_OPTS": "-Xss349k"]
 }
