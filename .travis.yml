@@ -5,4 +5,4 @@ language: java
 jdk:
   - openjdk11
 
-script: ./gradlew clean build cf-push
+script: ./gradlew --debug clean build cf-push
